@@ -1,20 +1,31 @@
 // Replace the fetch URL with your actual Render.com backend URL
 const API_URL = 'https://new-test-chat.onrender.com/api/chat';
 
-// Add these functions at the top of your script.js
+// Section switching functions
 function showChat() {
-    document.getElementById('chat-section').classList.add('active');
-    document.getElementById('providers-section').classList.remove('active');
+    const chatSection = document.getElementById('chat-section');
+    const providersSection = document.getElementById('providers-section');
+    
+    chatSection.classList.add('active');
+    providersSection.classList.remove('active');
 }
 
 function showProviders() {
-    document.getElementById('chat-section').classList.remove('active');
-    document.getElementById('providers-section').classList.add('active');
+    const chatSection = document.getElementById('chat-section');
+    const providersSection = document.getElementById('providers-section');
+    
+    chatSection.classList.remove('active');
+    providersSection.classList.add('active');
 }
 
-// Initialize chat view
+// Make sure event listeners are added after DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    showChat(); // Show chat by default
+    // Initialize chat view
+    showChat();
+
+    // Add click listeners to buttons
+    document.querySelector('.providers-button').addEventListener('click', showProviders);
+    document.querySelector('.back-button').addEventListener('click', showChat);
 });
 
 async function sendMessage() {
@@ -84,7 +95,4 @@ document.getElementById('user-input').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         sendMessage();
     }
-});
-
-// Add click handler for the back button
-document.querySelector('.back-button').addEventListener('click', showChat); 
+}); 
