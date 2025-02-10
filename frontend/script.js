@@ -5,7 +5,7 @@ document.getElementById('send').addEventListener('click', async () => {
     const messages = document.getElementById('messages');
     messages.innerHTML += `<div class="message user-message">${input}</div>`;
 
-    const response = await fetch('https://your-render-url.com/api/chat', {
+    const response = await fetch('https://new-test-chat.onrender.com/api/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
