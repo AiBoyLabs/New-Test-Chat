@@ -1,6 +1,22 @@
 // Replace the fetch URL with your actual Render.com backend URL
 const API_URL = 'https://new-test-chat.onrender.com/api/chat';
 
+// Add these functions at the top of your script.js
+function showChat() {
+    document.getElementById('chat-section').classList.add('active');
+    document.getElementById('providers-section').classList.remove('active');
+}
+
+function showProviders() {
+    document.getElementById('chat-section').classList.remove('active');
+    document.getElementById('providers-section').classList.add('active');
+}
+
+// Initialize chat view
+document.addEventListener('DOMContentLoaded', function() {
+    showChat(); // Show chat by default
+});
+
 async function sendMessage() {
     const input = document.getElementById('user-input');
     const message = input.value.trim();
@@ -68,4 +84,7 @@ document.getElementById('user-input').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         sendMessage();
     }
-}); 
+});
+
+// Add click handler for the back button
+document.querySelector('.back-button').addEventListener('click', showChat); 
