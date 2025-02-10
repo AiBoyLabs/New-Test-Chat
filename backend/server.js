@@ -7,6 +7,11 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+// Define a route for the root URL
+app.get('/', (req, res) => {
+    res.send('Welcome to the AI Chat API');
+});
+
 app.post('/api/chat', async (req, res) => {
     const userMessage = req.body.message;
 
