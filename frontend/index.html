@@ -9,20 +9,132 @@
 </head>
 <body>
     <div class="container">
-        <div class="chat-container">
-            <div class="chat-header">
-                <h1>Fashion AI Assistant</h1>
-                <p class="subtitle">Your personal fashion advisor powered by AI</p>
+        <!-- Main Chat Section -->
+        <div id="chat-section" class="section active">
+            <!-- Providers Button -->
+            <button class="providers-button" onclick="showProviders()">PROVIDERS</button>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h1>Fashion AI Assistant</h1>
+                    <p class="subtitle">Your personal fashion advisor powered by AI</p>
+                </div>
+                <div id="chat-messages"></div>
+                <div class="input-container">
+                    <input type="text" id="user-input" placeholder="Ask me about fashion trends, style advice, or outfit ideas...">
+                    <button onclick="sendMessage()" class="send-button">
+                        <span class="button-text">Send</span>
+                        <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div id="chat-messages"></div>
-            <div class="input-container">
-                <input type="text" id="user-input" placeholder="Ask me about fashion trends, style advice, or outfit ideas...">
-                <button onclick="sendMessage()" class="send-button">
-                    <span class="button-text">Send</span>
-                    <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9"/>
-                    </svg>
-                </button>
+        </div>
+
+        <!-- Providers Section -->
+        <div id="providers-section" class="section">
+            <div class="header">
+                <button class="back-button" onclick="showChat()">← BACK</button>
+                <h2 class="providers-title">PROVIDERS</h2>
+            </div>
+            <!-- Providers Grid -->
+            <div class="providers-grid">
+                <!-- American AI -->
+                <div class="provider-card">
+                    <div class="provider-header">
+                        <img src="images/american_logo.webp" alt="American AI" class="provider-logo">
+                        <h3 class="provider-name">American AI</h3>
+                    </div>
+                    <p class="provider-description">
+                        AIBOY is based on the American AI researches, leveraging cutting-edge AI technology to deliver innovative solutions and enhance user experiences.
+                    </p>
+                    <div class="tags">
+                        <span class="tag research">Research</span>
+                        <span class="tag ai-core">AI Core</span>
+                    </div>
+                    <a href="#" class="visit-link">Visit Provider</a>
+                </div>
+
+                <!-- Solana Foundation -->
+                <div class="provider-card">
+                    <div class="provider-header">
+                        <img src="images/Solana.svg" alt="Solana Foundation" class="provider-logo">
+                        <h3 class="provider-name">Solana Foundation</h3>
+                    </div>
+                    <p class="provider-description">
+                        AIBOY is partnering with Solana Foundation to accelerate AI innovation on the Solana network and foster novel user experiences on Solana.
+                    </p>
+                    <div class="tags">
+                        <span class="tag blockchain">Blockchain</span>
+                        <span class="tag ecosystem">Ecosystem</span>
+                    </div>
+                    <a href="#" class="visit-link">Visit Provider</a>
+                </div>
+
+                <!-- RIG -->
+                <div class="provider-card">
+                    <div class="provider-header">
+                        <img src="images/34926.png" alt="RIG" class="provider-logo">
+                        <h3 class="provider-name">RIG</h3>
+                    </div>
+                    <p class="provider-description">
+                        Incorporating RIG's intuitive API design, comprehensive documentation and scalability for chatbots and complex AI systems.
+                    </p>
+                    <div class="tags">
+                        <span class="tag api">API</span>
+                        <span class="tag framework">Framework</span>
+                    </div>
+                    <a href="#" class="visit-link">Visit Provider</a>
+                </div>
+
+                <!-- GitHub -->
+                <div class="provider-card">
+                    <div class="provider-header">
+                        <img src="images/github-mark.webp" alt="GitHub" class="provider-logo">
+                        <h3 class="provider-name">GitHub</h3>
+                    </div>
+                    <p class="provider-description">
+                        AIBOY takes the sources and develops itself using GitHub, posting its developments to share transparency with the community.
+                    </p>
+                    <div class="tags">
+                        <span class="tag development">Development</span>
+                        <span class="tag open-source">Open Source</span>
+                    </div>
+                    <a href="#" class="visit-link">Visit Provider</a>
+                </div>
+
+                <!-- OpenAI -->
+                <div class="provider-card">
+                    <div class="provider-header">
+                        <img src="images/openai.webp" alt="OpenAI" class="provider-logo">
+                        <h3 class="provider-name">OpenAI</h3>
+                    </div>
+                    <p class="provider-description">
+                        AIBOY leverages OpenAI's powerful API to deliver sophisticated language understanding and generation capabilities.
+                    </p>
+                    <div class="tags">
+                        <span class="tag ai-provider">AI Provider</span>
+                        <span class="tag api">API</span>
+                    </div>
+                    <a href="#" class="visit-link">Visit Provider</a>
+                </div>
+
+                <!-- DeepSeek -->
+                <div class="provider-card">
+                    <div class="provider-header">
+                        <img src="images/qwenlm.webp" alt="DeepSeek" class="provider-logo">
+                        <h3 class="provider-name">DeepSeek</h3>
+                    </div>
+                    <p class="provider-description">
+                        AIBOY integrates with DeepSeek's API to enhance its AI capabilities and provide advanced language processing features.
+                    </p>
+                    <div class="tags">
+                        <span class="tag ai-provider">AI Provider</span>
+                        <span class="tag api">API</span>
+                    </div>
+                    <a href="#" class="visit-link">Visit Provider</a>
+                </div>
             </div>
         </div>
     </div>
