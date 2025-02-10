@@ -1,3 +1,6 @@
+// Replace the fetch URL with your actual Render.com backend URL
+const API_URL = 'https://new-test-chat.onrender.com/api/chat';
+
 async function sendMessage() {
     const input = document.getElementById('user-input');
     const message = input.value.trim();
@@ -11,7 +14,7 @@ async function sendMessage() {
     const typingIndicator = addTypingIndicator();
 
     try {
-        const response = await fetch('https://your-render-app.onrender.com/api/chat', {
+        const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
