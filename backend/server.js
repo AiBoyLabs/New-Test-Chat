@@ -4,23 +4,22 @@ const OpenAI = require('openai');
 require('dotenv').config();
 
 const app = express();
-app.use(cors({
-    origin: ['your-hostinger-domain.com', 'http://localhost:3000'],
-    methods: ['GET', 'POST'],
-    credentials: true
-}));
-app.use(express.json());
 
-// Add these headers to your backend
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://your-hostinger-domain.com');
-    res.header('Access-Control-Allow-Methods', 'GET, POST');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});
+// Simplified CORS setup
+app.use(cors({
+    origin: '*', // For development - we'll restrict this later
+    methods: ['GET', 'POST']
+}));
+
+app.use(express.json());
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
+});
+
+// Add this route before the chat route
+app.get('/', (req, res) => {
+    res.json({ status: 'Server is running' });
 });
 
 app.post('/api/chat', async (req, res) => {
