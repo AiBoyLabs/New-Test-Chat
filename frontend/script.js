@@ -18,14 +18,32 @@ function showProviders() {
     providersSection.classList.add('active');
 }
 
-// Make sure event listeners are added after DOM is loaded
+// Make sure all DOM elements are loaded before adding event listeners
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize chat view
     showChat();
 
     // Add click listeners to buttons
-    document.querySelector('.providers-button').addEventListener('click', showProviders);
-    document.querySelector('.back-button').addEventListener('click', showChat);
+    const providersButton = document.querySelector('.providers-button');
+    const backButton = document.querySelector('.back-button');
+
+    if (providersButton) {
+        providersButton.addEventListener('click', showProviders);
+    }
+
+    if (backButton) {
+        backButton.addEventListener('click', showChat);
+    }
+
+    // Add event listener for Enter key
+    const userInput = document.getElementById('user-input');
+    if (userInput) {
+        userInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
 });
 
 async function sendMessage() {
@@ -88,11 +106,4 @@ function addTypingIndicator() {
     chatMessages.appendChild(typingElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     return typingElement;
-}
-
-// Add event listener for Enter key
-document.getElementById('user-input').addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
-}); 
+} 
